@@ -79,55 +79,59 @@ def main():
 
     cmd = ""
     while cmd != "exit":
-        print()
-        prompt = currentN.getcwd() + "~$ "
-        cmd = input(prompt)
-        if cmd == "ls":
-            currentN.listdir()
-        elif cmd[:2] == "cd":
-            cmd = cmd.split(" ")
-            if len(cmd) == 1:
-                currentN = root
-                continue
-            rep = cmd[1]
-            found = False
-            if rep == "..":
-                if currentN.parent == None:
-                    print("Vous etes a la racine")
-                else:
-                    currentN = currentN.parent
-                continue
+        try:
+            print()
+            prompt = currentN.getcwd() + "~$ "
+            cmd = input(prompt)
+            if cmd == "ls":
+                currentN.listdir()
+            elif cmd[:2] == "cd":
+                cmd = cmd.split(" ")
+                if len(cmd) == 1:
+                    currentN = root
+                    continue
+                rep = cmd[1]
+                found = False
+                if rep == "..":
+                    if currentN.parent == None:
+                        print("Vous etes a la racine")
+                    else:
+                        currentN = currentN.parent
+                    continue
 
-            for reps in currentN.fils:
-                if rep == reps.nom:
-                    currentN = reps
-                    found = True
-            if not found:
-                print("impossible de trouver le repeertoire", rep)
+                for reps in currentN.fils:
+                    if rep == reps.nom:
+                        currentN = reps
+                        found = True
+                if not found:
+                    print("impossible de trouver le repeertoire", rep)
 
-        elif cmd[:5] == "mkdir":
-            cmd = cmd[5:].split()
-            for rep in cmd:
-                currentN.ajoutFils(rep)
+            elif cmd[:5] == "mkdir":
+                cmd = cmd[5:].split()
+                for rep in cmd:
+                    currentN.ajoutFils(rep)
 
-        elif cmd[:2] == "rm":
-            cmd = cmd[2:].split()
-            for rep in cmd:
-                currentN.supprimeFils(rep)
+            elif cmd[:2] == "rm":
+                cmd = cmd[2:].split()
+                for rep in cmd:
+                    currentN.supprimeFils(rep)
 
-        elif cmd == "ls":
-            currentN.listdir()
+            elif cmd == "ls":
+                currentN.listdir()
 
-        elif cmd == "pwd":
-            print(currentN.getcwd())
+            elif cmd == "pwd":
+                print(currentN.getcwd())
 
-        elif cmd == "tree":
-            print("======== arborescence =======")
-            tree(root)
-        elif cmd == "exit":
+            elif cmd == "tree":
+                print("======== arborescence =======")
+                tree(root)
+            elif cmd == "exit":
+                sys.exit(0)
+            else:
+                usage()
+        except KeyboardInterrupt:
+            print("\nArret ...")
             sys.exit(0)
-        else:
-            usage()
 
 if __name__ == "__main__":
     main()
