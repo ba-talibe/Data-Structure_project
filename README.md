@@ -1,4 +1,4 @@
-# Data-Structuure_project
+# Data-Structure_project
 Simulateur d'une arborescence de repertoires en utilisant bien évidemment
 les Arbres comme structure de donnée, codé en python avec une interface en ligne 
 de commande qui permet d'ajouter ou de supprimmer les repertoires (Nœud)
