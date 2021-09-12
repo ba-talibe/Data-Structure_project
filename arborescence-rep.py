@@ -44,13 +44,6 @@ class Noeud:
         cwd = "/".join(cwd)
         return cwd
 
-
-
-
-
-root = Noeud(None, "root")
-currentN = root
-
 def usage():
     print("Usage : ")
     print("\t cd      : pour changer de repertoire")
