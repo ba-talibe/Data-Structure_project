@@ -7,9 +7,15 @@ et meme de naviguer a travers les repertoires.
 Apres avoir executer le script voici les differentes commandes disponibles:
 
 Usage : 
+
 	 cd      : pour changer de repertoire
+	 
 	 mkdir   : pour creer un repertoire
+	 
 	 ls      : pour lister les elements du repertoire courant
+	 
 	 pwd     : pour connaitre le chemin du repertoire courant
+	 
 	 tree    : pour afficher l'arborescence des repertoires
+	 
 	 rm      : pour supprimer un repertoire
